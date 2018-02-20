@@ -1,5 +1,9 @@
-- name: Power on Alpha Node
-  expect:
-    command: ssh admin@192.168.1.200 power on
-    responses:
-      (?i)admin@192.168.1.200's password: ""
+- name: Power on Servers
+  hosts: all
+  tasks:
+    - name: Power on Alpha
+      command: ssh admin@192.168.1.200 power on arg1
+      register: alpha
+    - name: Power on Beta
+      command: ssh admin@192.168.1.201 power on arg1
+      register: beta      
