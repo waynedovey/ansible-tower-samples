@@ -5,7 +5,7 @@
   hpilo_boot:
     host: 192.168.0.200
     login: admin  
-    password: {{ILO_PASSWORD}}
+    password: "{{ ILO_PASSWORD }}"
     media: normal
   when: cmdb_hwmodel.startswith('HP ')
   delegate_to: localhost
@@ -14,7 +14,7 @@
   hpilo_boot:
     host: 192.168.0.201
     login: admin
-    password: {{ILO_PASSWORD}}
+    password: "{{ ILO_PASSWORD }}"
     media: normal
   when: cmdb_hwmodel.startswith('HP ')
   delegate_to: localhost  
