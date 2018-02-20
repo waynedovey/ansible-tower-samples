@@ -1,20 +1,20 @@
 ---
 - hosts: all
- 
-- name: boot alpha
-  hpilo_boot:
-    host: 192.168.0.200
-    login: admin  
-    password: "{{ ILO_PASSWORD }}"
-    media: normal
-  when: cmdb_hwmodel.startswith('HP ')
-  delegate_to: localhost
+  tasks:
+    - name: boot alpha
+      hpilo_boot:
+        host: 192.168.0.200
+        login: admin  
+        password: "{{ ILO_PASSWORD }}"
+        media: normal
+      when: cmdb_hwmodel.startswith('HP ')
+      delegate_to: localhost
 
-- name: boot beta
-  hpilo_boot:
-    host: 192.168.0.201
-    login: admin
-    password: "{{ ILO_PASSWORD }}"
-    media: normal
-  when: cmdb_hwmodel.startswith('HP ')
-  delegate_to: localhost  
+    - name: boot beta
+      hpilo_boot:
+        host: 192.168.0.201
+        login: admin  
+        password: "{{ ILO_PASSWORD }}"
+        media: normal
+      when: cmdb_hwmodel.startswith('HP ')
+      delegate_to: localhost      
