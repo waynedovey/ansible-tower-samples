@@ -1,0 +1,11 @@
+---
+- name: Wait for host to come up
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - wait_for: host=[target host ip] state=started port=22 delay=1 timeout=300
+
+- name: Testing the ssh by ls folder
+  hosts: ALL
+  tasks:
+    - shell: ls ~
