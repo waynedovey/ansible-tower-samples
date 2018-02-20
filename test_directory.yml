@@ -1,5 +1,5 @@
 ---
 - name: Testing the ssh by ls folder
-  hosts: ALL
+  hosts: all
   tasks:
     - shell: ls ~
